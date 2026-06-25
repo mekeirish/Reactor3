@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<html lang="fr"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>LB Reaactor · Édition Équilibrée</title>
@@ -184,9 +182,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="icon.png">
 
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="./manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#4b6cb7">
-<link rel="apple-touch-icon" href="icon.png"></head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon.png">
+</head>
 <body>
 <div class="card">
     <h1>⚛️ LB Reaactor <button class="dark-toggle" id="darkModeToggle">🌙 Dark</button></h1>
@@ -574,8 +576,6 @@
             document.getElementById('root').innerHTML = '<div style="color:#ef4444; padding:20px; font-family:monospace; background:#fee2e2; border:1px solid #f87171; border-radius:8px; margin:20px; box-sizing:border-box;"><b>❌ Erreur d\\'exécution :</b><br>' + err.message + '</div>';
         }
     <\/script>
-
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
 </body>
 </html>`;
     }
@@ -853,5 +853,15 @@
     updateTokenButton();
     syncOriginalContents();
 </script>
-</body>
-</html>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker enregistré !'))
+        .catch(err => console.error('Erreur SW :', err));
+    });
+  }
+</script>
+</body></html>
